@@ -3,7 +3,6 @@
 Welcome! This is my sports analytics portfolio showcasing data analysis projects I’ve completed using R.  
 The goal of this portfolio is to demonstrate my skills in data cleaning, visualization, and statistical analysis, with a focus on sports data.
 
----
 
 ## Projects
 
@@ -14,7 +13,6 @@ A detailed analysis of ACC men’s basketball scoring during the 2025–2026 sea
 - Visualizations exploring scoring distribution and team dynamics
 - Folder: [acc-basketball](acc-basketball/)
 
----
 
 ## Tools & Skills Demonstrated
 - **R Programming:** tidyr, dplyr, stringr, rvest, janitor, ggplot2, polite
@@ -23,7 +21,6 @@ A detailed analysis of ACC men’s basketball scoring during the 2025–2026 sea
 - **Statistical Analysis:** Exploring trends, distributions, and comparisons across players and teams
 - **Reproducible Reporting:** R Markdown for analysis and documentation
 
----
 
 ## How to Use This Repo
 1. Browse the project folders
