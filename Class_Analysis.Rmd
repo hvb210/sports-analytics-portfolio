@@ -1,0 +1,502 @@
+---
+title: "Freshman Analysis"
+output: html_notebook
+---
+
+```{r}
+install.packages("rvest")
+library(rvest)
+install.packages("janitor")
+library(janitor)
+install.packages("stringr")
+library(stringr)
+install.packages("dplyr")
+library(dplyr)
+```
+
+```{r}
+#define the page for 25-26 ACC Stats from Sports-Reference
+
+url <- "https://www.sports-reference.com/cbb/conferences/acc/men/2026-stats.html"
+acc_page2526 <- read_html(url)
+```
+
+```{r}
+#Take the players_per_game table from the page
+
+acc_basketball_confstats_2526 <- acc_page2526 |>
+  html_element("#players_per_game_conf") |>
+  html_table() |>
+  clean_names()
+
+acc_basketball_confstats_2526
+```
+```{r}
+#scrub and Duke stats page
+url <- "https://www.sports-reference.com/cbb/schools/duke/men/2026.html#all_roster"
+duke_page <- read_html(url)
+```
+```{r}
+duke_page |>
+  html_nodes("table") |>
+  html_attr("id")
+```
+
+```{r}
+#set up Duke roster
+duke_roster <- duke_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+duke_roster
+```
+
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/north-carolina/men/2026.html#all_roster"
+unc_page <- read_html(url)
+
+unc_roster <- unc_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+unc_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/pittsburgh/men/2026.html"
+pitt_page <- read_html(url)
+
+pitt_roster <- pitt_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+pitt_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/syracuse/men/2026.html"
+syr_page <- read_html(url)
+
+syr_roster <- syr_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+syr_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/georgia-tech/men/2026.html"
+gt_page <- read_html(url)
+
+gt_roster <- gt_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+gt_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/virginia-tech/men/2026.html"
+vt_page <- read_html(url)
+
+vt_roster <- vt_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+vt_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/virginia/men/2026.html"
+uva_page <- read_html(url)
+
+uva_roster <- uva_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+uva_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/boston-college/men/2026.html"
+bc_page <- read_html(url)
+
+bc_roster <- bc_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+bc_roster
+```
+
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/california/men/2026.html"
+cal_page <- read_html(url)
+
+cal_roster <- cal_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+cal_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/clemson/men/2026.html"
+clemson_page <- read_html(url)
+
+clemson_roster <- clemson_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+clemson_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/florida-state/men/2026.html"
+fsu_page <- read_html(url)
+
+fsu_roster <- fsu_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+fsu_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/louisville/men/2026.html"
+louisville_page <- read_html(url)
+
+louisville_roster <- louisville_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+louisville_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/miami-fl/men/2026.html"
+miami_page <- read_html(url)
+
+miami_roster <- miami_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+miami_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/north-carolina-state/men/2026.html"
+ncstate_page <- read_html(url)
+
+ncstate_roster <-ncstate_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+ncstate_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/notre-dame/men/2026.html"
+nd_page <- read_html(url)
+
+nd_roster <-nd_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+nd_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/southern-methodist/men/2026.html"
+smu_page <- read_html(url)
+
+smu_roster <-smu_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+smu_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/stanford/men/2026.html"
+stanford_page <- read_html(url)
+
+stanford_roster <-stanford_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+stanford_roster
+```
+```{r}
+url <- "https://www.sports-reference.com/cbb/schools/wake-forest/men/2026.html"
+wake_page <- read_html(url)
+
+wake_roster <-wake_page |>
+  html_element("#roster") |>
+  html_table() |>
+  clean_names()
+
+wake_roster
+```
+```{r}
+#combine rosters together to be joined with player_per_game table
+#Key information in the roster is the class of each athlete
+
+acc_rosters <- bind_rows(
+  duke_roster,
+  unc_roster,
+  uva_roster,
+  wake_roster,
+  ncstate_roster,
+  stanford_roster,
+  nd_roster,
+  vt_roster,
+  syr_roster,
+  pitt_roster,
+  smu_roster,
+  miami_roster,
+  louisville_roster,
+  gt_roster,
+  fsu_roster,
+  clemons_roster,
+  cal_roster,
+  bc_roster
+)
+```
+```{r}
+library(stringr)
+
+clean_player_name <- function(x) {
+  x |>
+    str_replace_all("’", "'") |>                 # normalize apostrophes
+    str_remove_all("\\s(Jr\\.|Sr\\.|II|III|IV|V)$") |>  # remove suffixes
+    str_squish()
+}
+```
+
+```{r}
+#clean the names in the stats table and rosters table
+
+acc_basketball_confstats_2526 <- acc_basketball_confstats_2526 |>
+  mutate(player = clean_player_name(player))
+
+acc_rosters <- acc_rosters |>
+  mutate(player = clean_player_name(player))
+
+#join stats and rosters so that every player also has their class listed
+
+acc_stats_byclass <- acc_basketball_confstats_2526 |>
+  left_join(
+    acc_rosters,
+    by = "player"
+  )
+
+acc_stats_byclass
+```
+
+
+```{r}
+#verify how many players are in the table
+
+acc_stats_byclass |>
+  filter(is.na(class))
+```
+```{r}
+#calculate the percentage of points scored by freshmen
+
+freshman_share <- acc_stats_byclass |>
+  group_by(team) |>
+  summarise(
+    total_ppg = sum(pts),
+    freshman_ppg = sum(pts[class == "FR"]),
+    freshman_share = freshman_ppg / total_ppg * 100,
+    .groups = "drop"
+  ) |>
+  arrange(desc(freshman_share))
+
+freshman_share
+```
+
+```{r}
+#create a variable for experience group
+
+acc_stats_byclass <- acc_stats_byclass |>
+  mutate(
+    experience_group = case_when(
+      class %in% c("FR", "SO") ~ "Underclassmen",
+      class %in% c("JR", "SR", "GR") ~ "Upperclassmen"
+    )
+  )
+```
+```{r}
+library(tidyr)
+
+#calculate the percentage of points from each experience group and group by team
+
+experience_share <- acc_stats_byclass |>
+  group_by(team, experience_group) |>
+  summarise(
+    ppg = sum(pts),
+    .groups = "drop"
+  ) |>
+  group_by(team) |>
+  mutate(
+    pct_ppg = ppg / sum(ppg) * 100
+  ) |>
+  drop_na()
+```
+```{r}
+#reshape the table so there are columns for underclassmen and upperclassmen for each team
+
+experience_share_pct <- experience_share |>
+  pivot_wider(
+    names_from = experience_group,
+    values_from = c(ppg, pct_ppg)
+  ) |>
+  select(team, pct_ppg_Underclassmen, pct_ppg_Upperclassmen) |>
+  arrange(desc(pct_ppg_Underclassmen))
+```
+
+```{r}
+#filter for only freshman on each roster
+#There are more freshman on the rosters than in the acc_stats data set
+
+acc_freshmen <- acc_rosters |>
+  filter(class == "FR")
+```
+```{r}
+#checking freshmen that are not in main data set.
+#These freshmen are confirmed to have scored 0 points in conference play
+
+acc_rosters |>
+  anti_join(
+    acc_stats_byclass,
+    by = "player") |>
+  filter(class == "FR")
+```
+```{r}
+acc_sophomores <- acc_rosters |>
+  filter(class == "SO")
+
+acc_juniors <- acc_rosters |>
+  filter(class == "JR")
+
+acc_seniors <- acc_rosters |>
+  filter(class == "SR")
+
+
+```
+
+```{r}
+#read in the list of transfers from 2025 which includes player name and where they transferred from
+
+transfer_list <- read.csv("/Users/hanabaskin/Desktop/ACC Transfers 25 - Sheet1.csv")
+```
+```{r}
+#Join the transfer_list with the rosters
+#NA in transfer_from columns means player was not a transfer
+
+acc_rosters <- acc_rosters |>
+  left_join(
+    transfer_list, 
+    by = "player"
+  )
+```
+```{r}
+#veryifying the join was done correctly and there are the same number of players on the rosters
+
+acc_rosters |>
+  filter(!is.na(transfer_from))
+```
+
+```{r}
+#verifying that there are no transfers who did not match a roster
+
+transfer_list |>
+  anti_join(
+    acc_rosters |> filter(!is.na(transfer_from)),
+    by = "player"
+  )
+
+#confirmed that Egor Ryzhov is not on FSU roster
+```
+```{r}
+#joining the stats table with the updated rosters so each player has class and transfer_from
+
+acc_stats_byclass <- acc_stats_byclass |>
+  left_join(
+    acc_rosters |>
+      select(player, transfer_from),
+    by = "player"
+  )
+
+```
+
+```{r}
+#Creating a flag for transfers
+
+acc_stats_byclass <- acc_stats_byclass |>
+  mutate(is_transfer = !is.na(transfer_from))
+```
+
+```{r}
+#Create a table of freshman percentage of total team points broken down by transfer and non-transfer
+
+freshman_transfer_breakdown <- acc_stats_byclass |>
+  group_by(team) |>
+  mutate(total_team_pts = sum(pts)) |>
+  ungroup() |>
+  filter(class == "FR") |>
+  group_by(team, is_transfer) |>
+  summarise(
+    freshman_pts = sum(pts),
+    total_team_pts = first(total_team_pts),
+    pct_of_team = freshman_pts / total_team_pts * 100,
+    .groups = "drop"
+  ) |>
+ select(team, is_transfer, pct_of_team) |>
+  pivot_wider(
+    names_from = is_transfer,
+    values_from = pct_of_team,
+    values_fill = 0,
+    names_prefix = "transfer_"
+  ) |>
+  rename(
+    freshman_pct_non_transfer = transfer_FALSE,
+    freshman_pct_transfer = transfer_TRUE
+  ) |>
+  arrange(desc(freshman_pct_non_transfer))
+  
+```
+
+```{r}
+experience_group_transfer_breakdown <- acc_stats_byclass |>
+  mutate(is_transfer = !is.na(transfer_from)) |>
+  group_by(team) |>
+  mutate(total_team_pts = sum(pts)) |>
+  ungroup() |>
+  group_by(team, experience_group, is_transfer) |>
+  summarise(
+    class_pts = sum(pts),
+    total_team_pts = first(total_team_pts),
+    pct_of_team = class_pts / total_team_pts * 100,
+    .groups = "drop"
+  ) |>
+ select(team, experience_group, is_transfer, pct_of_team) |>
+  drop_na() |>
+  pivot_wider(
+    names_from = c(experience_group, is_transfer),
+    values_from = pct_of_team,
+    values_fill = 0
+  ) |>
+  rename(
+    Underclassmen_nontransfer = Underclassmen_FALSE,
+    Underclassmen_transfer = Underclassmen_TRUE,
+    Upperclassmen_nontransfer = Upperclassmen_FALSE,
+    Upperclassmen_transfer = Upperclassmen_TRUE
+  ) |>
+  arrange(desc(Upperclassmen_nontransfer))
+```
+
