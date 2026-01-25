@@ -139,7 +139,48 @@ fouls_close <- all_games |>
 
 pbp <- all_games |>
   mutate(
+    home_team = case_when(
+      str_detect(home_team, "Virginia Tech") ~ "Virginia Tech",
+      str_detect(home_team, "North Carolina") ~ "North Carolina",
+      str_detect(home_team, "Notre Dame") ~ "Notre Dame",
+      str_detect(home_team, "Boston College") ~ "Boston College",
+      str_detect(home_team, "California") ~ "California",
+      str_detect(home_team, "Clemson") ~ "Clemson",
+      str_detect(home_team, "Duke") ~ "Duke",
+      str_detect(home_team, "Florida State") ~ "Florida State",
+      str_detect(home_team, "Georgia Tech") ~ "Georgia Tech",
+      str_detect(home_team, "Louisville") ~ "Louisville",
+      str_detect(home_team, "Miami") ~ "Miami (FL)",
+      str_detect(home_team, "NC State") ~ "NC State",
+      str_detect(home_team, "Pittsburgh") ~ "Pittsburgh",
+      str_detect(home_team, "SMU") ~ "SMU",
+      str_detect(home_team, "Stanford") ~ "Stanford",
+      str_detect(home_team, "Syracuse") ~ "Syracuse",
+      str_detect(home_team, "Virginia") ~ "Virginia",
+      str_detect(home_team, "Wake Forest") ~ "Wake Forest"
+    ),
+    away_team = case_when(
+      str_detect(away_team, "Virginia Tech") ~ "Virginia Tech",
+      str_detect(away_team, "North Carolina") ~ "North Carolina",
+      str_detect(away_team, "Notre Dame") ~ "Notre Dame",
+      str_detect(away_team, "Boston College") ~ "Boston College",
+      str_detect(away_team, "California") ~ "California",
+      str_detect(away_team, "Clemson") ~ "Clemson",
+      str_detect(away_team, "Duke") ~ "Duke",
+      str_detect(away_team, "Florida State") ~ "Florida State",
+      str_detect(away_team, "Georgia Tech") ~ "Georgia Tech",
+      str_detect(away_team, "Louisville") ~ "Louisville",
+      str_detect(away_team, "Miami") ~ "Miami (FL)",
+      str_detect(away_team, "NC State") ~ "NC State",
+      str_detect(away_team, "Pittsburgh") ~ "Pittsburgh",
+      str_detect(away_team, "SMU") ~ "SMU",
+      str_detect(away_team, "Stanford") ~ "Stanford",
+      str_detect(away_team, "Syracuse") ~ "Syracuse",
+      str_detect(away_team, "Virginia") ~ "Virginia",
+      str_detect(away_team, "Wake Forest") ~ "Wake Forest"
+    ),
     play_team = case_when(
+      str_detect(play_team, "Virginia Tech") ~ "Virginia Tech",
       str_detect(play_team, "North Carolina") ~ "North Carolina",
       str_detect(play_team, "Notre Dame") ~ "Notre Dame",
       str_detect(play_team, "Boston College") ~ "Boston College",
@@ -156,14 +197,12 @@ pbp <- all_games |>
       str_detect(play_team, "Stanford") ~ "Stanford",
       str_detect(play_team, "Syracuse") ~ "Syracuse",
       str_detect(play_team, "Virginia") ~ "Virginia",
-      str_detect(play_team, "Virginia Tech") ~ "Virginia Tech",
-      str_detect(play_team, "Wake Forest") ~ "Wake Forest",
+      str_detect(play_team, "Wake Forest") ~ "Wake Forest"
     )
   )
-```
 
 
-```{r}
+
 # Define player_regex to include first names Like B.J. and Tre'Von
 
 player_regex <- "^([A-Z]\\.)+[[:space:]]+[A-Z][a-zA-Z'’-]+|^[A-Z][a-zA-Z'’-]+[[:space:]]+[A-Z][a-zA-Z'’-]+"
@@ -245,13 +284,8 @@ close_game_points <- pbp_clean %>%
 pbp_scores <- pbp_clean |>
   filter(play_type == "score") |>
   arrange(game_id, half, desc(secs_left_half)) |>
-  mutate(
-    scoring_team = if_else(
-      home_score > lag(home_score, default = 0), home_team,
-      if_else(away_score > lag(away_score, default = 0), away_team, NA_character_)
-    )
-  ) |>
   group_by(game_id) |>
+  mutate(scoring_team = play_team)|>
   mutate(run_increment = rleid(scoring_team),
          run_id = paste(game_id, run_increment, sep = "_")) |>
   ungroup() |>
@@ -288,19 +322,35 @@ runs_with_timeouts <- runs_summary |>
 ```
 
 ```{r}
-# for any consecutive points scored by a team, determine if a timeout was called within 5 seconds
+# for runs of 8+ points, determine if a timeout was called within 5 seconds of the end of the run
 
-all_runs_summary <- runs_summary |>
-  left_join(timeouts, by = "game_id") |>
+big_runs_summary <- runs_summary |>
+  filter(run_points >= 8) |>
+  select(game_id, run_id, scoring_team, run_points, run_start_secs, run_end_secs, half) |>
+  left_join(timeouts, by = c("game_id", "half")) |>
   mutate(
-    time_diff = abs(run_end_secs - timeout_secs),
-    quick_timeout = time_diff <= 5
+    time_after_run = run_end_secs - timeout_secs,  # Positive means timeout came after run ended
+    quick_timeout_check = (time_after_run >= 0 & time_after_run <= 5)
   ) |>
-  group_by(run_id) |>
-  slice_min(time_diff, n = 1, with_ties = FALSE) |>  # keep closest timeout only
-  ungroup() |>
-  mutate(quick_timeout = if_else(is.na(quick_timeout), FALSE, quick_timeout))
+  group_by(game_id, run_id) |>
+  summarise(
+    scoring_team = first(scoring_team),
+    run_points = first(run_points),
+    run_start_secs = first(run_start_secs),
+    run_end_secs = first(run_end_secs),
+    half = first(half),
+    quick_timeout = any(quick_timeout_check, na.rm = TRUE),
+    timeout_team = first(timeout_team[quick_timeout_check], default = NA_character_),
+    .groups = "drop"
+  )
 
+```
+```{r}
+runs_against <- runs_summary |>
+  filter(run_points >= 8) |>
+  left_join(pbp_clean |> distinct(game_id, home_team, away_team), by = "game_id") |>
+  mutate(opponent_team = if_else(scoring_team == home_team, away_team, home_team)) |>
+  count(opponent_team, name = "total_8plus_runs_against")
 ```
 
 ```{r}
@@ -312,18 +362,13 @@ all_runs_summary <- runs_summary |>
 # number of timeouts taken within 5 seconds of 8+ pt run
 # percentage of timeouts in response to 8+ pt run
 
-defensive_timeout_summary <- all_runs_summary |>
+defensive_summary <- big_runs_summary |>
+  filter(!is.na(timeout_team)) |>
   group_by(timeout_team) |>
-  summarise(
-    total_runs_against = n(),
-    quick_timeouts_any = sum(quick_timeout),
-    pct_quick_timeouts_any = 100 * mean(quick_timeout), #quick_timeout is boolean so mean is the proportion of trues
-    runs_8plus_against = sum(run_points >= 8),
-    quick_timeouts_8plus = sum(quick_timeout & run_points >= 8),
-    pct_quick_timeouts_8plus = 100 * mean(quick_timeout[run_points >= 8]),
-    .groups = "drop"
-  ) |>
-  arrange(desc(runs_8plus_against))
+  summarise(quick_timeouts_called = n_distinct(run_id)) |>  # Count unique runs, not total timeouts
+  left_join(runs_against, by = c("timeout_team" = "opponent_team")) |>
+  mutate(timeout_pct = round(quick_timeouts_called / total_8plus_runs_against * 100, 1)) |>
+  arrange(desc(timeout_pct))
 ```
 
 ```{r}
@@ -338,5 +383,26 @@ runs_by_team <- pbp_scores |>
   ) |>
   arrange(desc(n_runs))
 ```
+
+```{r}
+# Checking that teams omitted from the defensive summary had 0 quick timeouts called after an 8+ run against them
+
+runs_against |>
+  left_join(
+    defensive_summary |> select(timeout_team, quick_timeouts_called),
+    by = c("opponent_team" = "timeout_team")
+  ) |>
+  mutate(quick_timeouts_called = replace_na(quick_timeouts_called, 0)) |>
+  arrange(desc(total_8plus_runs_against))
 ```
+
+
+
+
+
+
+
+
+
+
 
