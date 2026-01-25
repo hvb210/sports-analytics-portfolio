@@ -541,5 +541,119 @@ depth_analysis |>
 ```{r}
 ggsave("bench_depth_plot.png")
 ```
+```{r}
+# A starter is anyone who started in at least once conference game
 
+starters <- read.csv("/Users/hanabaskin/Desktop/Basketball Analysis/Starters - Sheet1.csv")
+```
+
+```{r}
+starters_lookup <- starters |>
+  distinct(team, player) |>
+  mutate(role = "Starter")
+```
+
+```{r}
+# Assigns everyone as a starter or bench player
+
+acc_stats_with_role <- acc_stats_byclass |>
+  left_join(
+    starters_lookup,
+    by = c("team", "player")
+  ) |>
+  mutate(
+    role = if_else(is.na(role), "Bench", role)
+  )
+```
+
+```{r}
+# Check to see how many starters vs bench players on each team
+acc_stats_with_role |>
+  distinct(team, player, role) |>
+  count(team, role)
+```
+```{r}
+bench_vs_starters <- acc_stats_with_role |>
+  mutate(total_minutes = mp * g) |>
+  group_by(team, role) |>
+  summarise(
+    minutes = sum(total_minutes),
+    points = sum(pts),
+    ppm = points / minutes,
+    .groups = "drop"
+  ) |>
+  pivot_wider(
+    names_from = role,
+    values_from = c(minutes, points, ppm)
+  ) |>
+  drop_na()
+```
+
+```{r}
+bench_vs_starters_analysis <- bench_vs_starters |>
+  mutate(
+    minutes_team = minutes_Starter + minutes_Bench,
+    pct_minutes_starters = minutes_Starter / minutes_team * 100,
+    pct_minutes_bench    = minutes_Bench / minutes_team * 100,
+    bench_efficiency_ratio = ppm_Bench / ppm_Starter
+  ) |>
+  select(team, minutes_team, pct_minutes_starters, ppm_Starter, pct_minutes_bench, ppm_Bench, bench_efficiency_ratio) |>
+  arrange(desc(bench_efficiency_ratio))
+```
+
+```{r}
+mean_starters_minutes_pct <- bench_vs_starters_analysis |>
+  summarise(m = mean(pct_minutes_starters)) |>
+  pull(m)
+```
+```{r}
+mean_bench_efficiency_ratio <- bench_vs_starters_analysis |>
+  summarise(m = mean(bench_efficiency_ratio)) |>
+  pull(m)
+```
+
+```{r}
+bench_vs_starters_analysis <- bench_vs_starters_analysis |>
+  mutate(
+    logo = case_when(
+      team == "Duke" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/duke_logo.webp",
+      team == "North Carolina" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/unc_logo.webp",
+      team == "Virginia" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/uva_logo.webp",
+      team == "Notre Dame" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/nd_logo.webp",
+      team == "Virginia Tech" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/vt_logo.webp",
+      team == "Stanford" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/stanford_logo.webp",
+      team == "SMU" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/smu_logo.webp",
+      team == "Boston College" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/bc_logo.webp",
+      team == "Clemson" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/clemson_logo.webp",
+      team == "Pittsburgh" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/pitt_logo.webp",
+      team == "Syracuse" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/syr_logo.webp",
+      team == "Miami (FL)" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/miami_logo.webp",
+      team == "Georgia Tech" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/gt_logo.webp",
+      team == "NC State" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/ncstate_logo.webp",
+      team == "Florida State" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/fsu_logo.webp",
+      team == "Louisville" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/louisville_logo.webp",
+      team == "Wake Forest" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/wake_logo.webp",
+      team == "California" ~ "/Users/hanabaskin/Desktop/Basketball Analysis/Team Logos/cal_logo.webp",
+    )
+  )
+```
+
+```{r}
+bench_vs_starters_analysis |>
+  ggplot(aes(x = pct_minutes_starters, y = bench_efficiency_ratio)) +
+  geom_image(aes(image = logo), size = 0.05) +
+  labs(
+    title = "ACC Bench Depth Analysis",
+    subtitle = "Minutes Concentration vs. Bench Production",
+    x = "% of Minutes to Starters",
+    y = "Bench Efficiency Ratio (Bench PPM / Starters PPM)",
+    caption = "Data: ACC Conference Play 2025-26"
+  ) +
+  geom_hline(yintercept = mean_bench_efficiency_ratio, linetype = "dashed", color = "red", alpha = 0.5) +
+  geom_vline(xintercept = mean_starters_minutes_pct, linetype = "dashed", color = "red", alpha = 0.5) +
+  theme_minimal()
+```
+```{r}
+ggsave("bench_depth_starters_plot.png")
+```
 

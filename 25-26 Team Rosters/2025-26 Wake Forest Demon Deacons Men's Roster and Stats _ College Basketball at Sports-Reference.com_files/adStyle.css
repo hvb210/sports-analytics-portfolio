@@ -1,0 +1,475 @@
+/* @font-face {
+     font-family: name;
+     src: url("path");
+} */
+
+@font-face {
+  font-family: "MaxSans-Demi";
+  src: url("MaxSans-Demi.woff");
+}
+
+@font-face {
+  font-family: "MaxSans-Bold";
+  src: url("MaxSans-Bold.woff");
+}
+
+@font-face {
+  font-family: "MaxSans-Regular";
+  src: url("MaxSans-Regular.woff");
+}
+
+span {
+     font-family: "MaxSans-Bold";
+}
+
+
+.creativesize-container {
+     width: 970px;
+     height: 250px;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+}
+
+#frame1bg {
+     width: 100%;
+     height: 100%;
+     object-fit: fill;
+}
+
+
+#baseimgmaincontainer {
+     width: 405px;
+     height: 250px;
+     position: absolute;
+     top: 0px;
+     left: 267px;
+     display: flex;
+     flex-direction: row;
+}
+
+
+/*Three Shows layout - base img*/
+.baseimg3 {
+     width: 135px;
+     height: 250px;
+     object-fit: contain;
+}
+
+
+.fitcontain {
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+}
+
+#frame1img1 {
+     width: 100%;
+     height: 100%;
+}
+
+.stack-container {
+     width: 194px;
+     height: 82px;
+     position: absolute;
+     left: 36px;
+     top: 84px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 12px;
+}
+
+.logo-container {
+     width: 189px;
+     height: 52px;
+}
+
+.logo-container-full-image {
+     width: 190px;
+     height: 52px;
+}
+
+.frame1subheadline4-container {
+     width: auto;
+     height: 18px;
+}
+
+.frame1subheadline4-full-image-container {
+     width: auto;
+     height: 18px;
+}
+
+.frame1subheadline4 {
+     color: #FFF;
+     text-align: center;
+     font-family: "MaxSans-Demi";
+     font-size: 16px;
+     line-height: normal;
+     letter-spacing: 0.34px; 
+     white-space: nowrap;
+}
+
+.frame1subheadline4-full-image {
+     color: #FFF;
+     text-align: center;
+     font-family: "MaxSans-Demi";
+     font-size: 16px;
+     line-height: normal;
+     letter-spacing: 0.34px; 
+     white-space: nowrap;
+}
+
+.base-headline-stack {
+     width: 107px;
+     height: 80px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 4px;
+}
+
+#base-headline-stack1 {
+     position: absolute;
+     left: 281px;
+     top: 163px;
+}
+
+#base-headline-stack2 {
+     position: absolute;
+     left: 416px;
+     top: 163px;
+}
+
+#base-headline-stack3 {
+     position: absolute;
+     left: 550px;
+     top: 163px;
+     gap: 6px  ;
+}
+
+.baseimg-text {
+     color: #FFF;
+     width: 107px;
+     height: auto;
+     font-family: "MaxSans-Regular";
+     font-size: 11px;
+     letter-spacing: 0.34px;
+     text-transform: uppercase;
+     text-align: center;
+}
+
+.baseimg-title {
+     width: 107px;
+     height: auto;
+     object-fit: contain;
+}
+
+#bgmask3-container {
+     width: 209px;
+     height: 16px;
+     position: absolute;
+     left: 717px;
+     top: 9px;
+     justify-content: center;
+     align-items: flex-start;
+}
+
+#bgmask3-text {
+     color: #FFF;
+     text-align: center;
+     font-family: "MaxSans-Bold";
+     font-size: 14px;
+     line-height: normal;
+     letter-spacing: 0.34px;
+}
+
+#pill-container {
+     width: 200px;
+     height: 34px;
+     position: absolute;
+     left: 721px;
+     top: 42px;
+     border-radius: 71.99px;
+     background: rgba(255, 255, 255, 0.15);
+}
+
+#pill-stack {
+     width: 200px;
+     height: 34px;
+     position: relative;
+     left: 0px;
+     top: 0px;  
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     border-radius: 71.99px;
+}
+
+.pill-label-container {
+     width: 100px;
+     height: 34px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     -webkit-tap-highlight-color: transparent;
+}
+
+.pill-label {
+     padding-top:1px;
+     color: #fff;
+     text-align: center;
+     font-family: "MaxSans-Bold";
+     font-size: 10px;
+     font-style: normal;
+     line-height: 1em;
+     letter-spacing: 0.29px;
+     text-transform: uppercase;
+     cursor: pointer;
+     -webkit-tap-highlight-color: transparent;
+}
+
+#white-container {
+     width: 98px;
+     height: 30px;
+     position: absolute;
+     left: 2px;
+     top: 2px; 
+     background: white;
+     border-radius: 93.41px;
+}
+
+#pill-monthly-container {
+     border-radius: 71.99px 0px 0px 71.99px;
+}
+
+#pill-yearly-container {
+     border-radius: 0px 71.99px 71.99px 0px
+}
+
+.active {
+     color: #000;
+}
+
+.arrow {
+     width: 9px;
+     height: 15px;
+     cursor: pointer;
+}
+
+#left-arrow {
+     position: absolute;
+     left: 701px;
+     top: 124px;
+}
+
+#right-arrow {
+     position: absolute;
+     left: 931px;
+     top: 124px;
+}
+
+
+#bgmask4-container {
+     width: 99px;
+     height: 13px;
+     position: absolute;
+     left: 820px;
+     top: 30px;
+     justify-content: center;
+     align-items: flex-start;    
+}
+
+#bgmask4-text {
+     color: #FFFFFF;
+     text-align: center;
+     font-family: "MaxSans-Demi";
+     font-size: 9px;
+     line-height: 1em;
+     letter-spacing: 0.69px;
+     text-transform: uppercase;
+}
+
+#cta-flex {
+     position: absolute;
+     top: 186px;
+     left: 731px;
+     width: 180px;
+     height: 34px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     white-space: nowrap;
+}
+
+#cta-box{
+     width: auto;
+     height: 34px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #00208F;
+     border-radius: 3.23px;
+     cursor: pointer;
+}
+#cta-text{
+     color: #00208F;
+     font-family: "MaxSans-Bold";
+     font-size: 14px;
+     letter-spacing: 0.65px;
+     line-height: normal;
+     padding: 4px 22px 0px;
+}
+
+#card-container {
+     width: 200px;
+     height: 90px;
+     position: absolute;
+     left: 721px;
+     top: 86px;
+     border-radius: 4.2px;
+     background: rgba(0, 0, 0, 0.15);
+     overflow: hidden;
+}
+
+.cards, .cards-yearly, .cards-monthly {
+     width: 200px;
+     height: 90px;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     display: none;
+/*     padding-top: 4px;*/
+     gap: 3px;
+}
+
+.promo-name {
+     width: 174px;
+     height: 18px;
+     color: #FFF;
+     text-align: center;
+     font-family: "MaxSans-Bold";
+     font-size: 16px;
+     line-height: normal;
+     letter-spacing: 0.18px;
+}
+
+.promo-description {
+     width: 198px;
+     height: 13px;
+     color: #00F0FF;
+     text-align: center;
+     font-family:  "MaxSans-Regular";
+     font-size: 12px;
+     line-height: normal;
+     letter-spacing: 0.42px;
+}
+
+.price {
+     width: 130px;
+     height: 25px;
+     color: #FFF;
+     text-align: center;
+     font-family: "MaxSans-Bold";
+     font-size: 24px;
+     letter-spacing: 1.05px;
+/*     line-height: 1.3em;*/
+/*     margin-bottom: 9px;*/
+}
+
+.disclaimer {
+     width: 158px;
+     height: 11px;
+     color: #FFF;
+     text-align: center;
+     font-family: "MaxSans-Demi";
+     font-size: 10px;
+     line-height: normal;
+     letter-spacing: 0.42px;
+}
+
+#indicator-container {
+     width: 49.38px;
+     height: 10px;
+     position: absolute;
+     left: 796px;
+     top: 229px;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.indicator {
+     width: 9.69px;
+     height: 9.69px;
+     border-radius: 12px;
+     background: rgba(255, 255, 255, 0.15);
+     cursor: pointer;
+}
+
+#gradientColor {
+     width: 411px;
+     height: 79px;
+     position: absolute;
+     left: 267px;
+     top: 171px;
+}
+
+#gradientColorFullImage {
+     width: 528px;
+     height: 250px;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+}
+
+#fullimage-container {
+     width: 677px;
+     height: 250px;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+}
+
+#singletitle-container {
+     width: 442px;
+     height: 250px;
+     position: absolute;
+     left: 249px;
+     top: 0px;
+}
+
+.stack-container-full-image {
+     width: 194px;
+     height: 82px;
+     position: absolute;
+     left: 43px;
+     top: 84px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 12px;
+}
+
+.stack-container-single-title{
+     width: 194px;
+     height: 83px;
+     position: absolute;
+     left: 28px;
+     top: 84px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 12px;
+}

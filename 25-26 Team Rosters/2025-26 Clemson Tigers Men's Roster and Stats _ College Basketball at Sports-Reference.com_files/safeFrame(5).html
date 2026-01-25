@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0053)https://static.btloader.com/safeFrame.html?upapi=true -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script>var isDebugMode=!1;function evalCode(e){try{window.eval(e)}catch(e){isDebugMode&&console.error(e)}}function renderSecureCreative(e){document.write(e),document.close()}window.addEventListener("message",function(e){var t=e.message?"message":"data",o={};if("object"==typeof e[t])o=e[t];else try{o=JSON.parse(e[t])}catch(e){return void(isDebugMode&&console.error(e))}if("eval"!==o.type)switch(o.message){case"Render Secure Creative":renderSecureCreative(o.ad);break;case"Get Blocklist Creatives":getBlocklistedCreatives(e.origin);break;case"Set Blocklist Creative":setBlocklistedCreatives(o.blocklistedCreative);break;case"BT debug mode":isDebugMode=!0}else evalCode(o.code)});var BT_BLOCKLISTED_CREATIVES="BT_BLOCKLISTED_CREATIVES";function getBlocklistedCreatives(e){var t=[];try{t=JSON.parse(window.localStorage.getItem(BT_BLOCKLISTED_CREATIVES)).filter(e=>e.expirationTime>Date.now())}catch(e){isDebugMode&&console.error(e),t=[]}window.localStorage.setItem(BT_BLOCKLISTED_CREATIVES,JSON.stringify(t)),window.parent.postMessage({message:"Get Blocklist Creatives",blocklistedCreatives:t},e)}function setBlocklistedCreatives(e){var t=[];try{t=JSON.parse(window.localStorage.getItem(BT_BLOCKLISTED_CREATIVES))}catch(e){isDebugMode&&console.error(e),t=[]}t.push(e),window.localStorage.setItem(BT_BLOCKLISTED_CREATIVES,JSON.stringify(t))}</script></head><body data-new-gr-c-s-check-loaded="14.1269.0" data-gr-ext-installed="">
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration><iframe sandbox="allow-scripts allow-same-origin" id="282bd67a925b7f4" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./usync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="283a23ac1f531f5d" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./user_sync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="2847e0325408733f8" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./sync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="2859ae125ace14d9" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./checksync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="2866afcb9f603cbc" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./async_usersync.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="28799b893ba99294" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./ixmatch.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="2889d73ab6ec6dbf" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./pbcas.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="2896cc2c6c181a1e8" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./pd.html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="290b71ed757c619d8" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./user_sync(1).html">
+    </iframe><iframe sandbox="allow-scripts allow-same-origin" id="291b7a0d06e51b52" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="height:0px;width:0px;display:none;" scrolling="no" src="./checksync(1).html">
+    </iframe></html>

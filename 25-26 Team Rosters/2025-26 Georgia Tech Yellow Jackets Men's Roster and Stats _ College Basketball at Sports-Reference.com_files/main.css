@@ -1,0 +1,485 @@
+
+/***************** YOUR CSS GOES HERE ******************/
+
+
+div {
+	outline: 0;
+}
+
+body * {
+	padding: 0px !important;
+}
+
+
+.ivc-swiper-scrollbar-drag {
+	top: 0 !important;
+}
+
+
+#ivc_clickoutmain_bu {
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	z-index: 190 !important;
+	opacity: 1 ;
+	
+}
+/* C4 CSS */
+
+#ivc-overlay-creative {
+	cursor: pointer;
+}
+#ivc_canvascontent {
+	
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat:no-repeat;
+}
+
+#ivc_adchoices_full_bu {
+	cursor: pointer;
+}
+
+#ivc_adchoices_full_bu {
+	background-image: url(adchoices_full_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 0%;
+	left: 88.36%;
+	width: 11.72%;
+	height: 4.45%;
+	z-index: 200 !important;
+	opacity: 1 ;
+}
+
+#ivc_logo_bu {
+	cursor: pointer;
+}
+
+#ivc_logo_bu {
+	background-image: url(logo_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 10.84%;
+	left: 72.27%;
+	width: 22.04%;
+	height: 29.03%;
+	z-index: 199 !important;
+	opacity: 1 ;
+}
+
+#ivc_copy_bu {
+	background-image: url(copy_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 5.84%;
+	left: 73.13%;
+	width: 19.22%;
+	height: 3.2%;
+	z-index: 198 !important;
+	opacity: 1 ;
+	pointer-events: none !important;
+}
+
+#ivc_learn_bu {
+	cursor: pointer;
+}
+
+#ivc_learn_bu {
+	background-image: url(learn_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 48.89%;
+	left: 71.1%;
+	width: 24.3%;
+	height: 6.95%;
+	z-index: 197 !important;
+	opacity: 1 ;
+}
+
+#ivc_save_bu {
+	cursor: pointer;
+}
+
+#ivc_save_bu {
+	background-image: url(save_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 57.92%;
+	left: 71.1%;
+	width: 24.3%;
+	height: 6.81%;
+	z-index: 196 !important;
+	opacity: 1 ;
+}
+
+#ivc_prescribing_bu {
+	cursor: pointer;
+}
+
+#ivc_prescribing_bu {
+	background-image: url(prescribing_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 68.89%;
+	left: 1.72%;
+	width: 24.61%;
+	height: 3.2%;
+	z-index: 195 !important;
+	opacity: 1 ;
+}
+
+#ivc_medication_bu {
+	cursor: pointer;
+}
+
+#ivc_medication_bu {
+	background-image: url(medication_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 68.89%;
+	left: 28.99%;
+	width: 16.1%;
+	height: 2.78%;
+	z-index: 194 !important;
+	opacity: 1 ;
+}
+
+#ivc_line_bu {
+	background-image: url(line_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 72.58%;
+	left: 0.08%;
+	width: 100%;
+	height: 0.7%;
+	z-index: 193 !important;
+	opacity: 1 ;
+	pointer-events: none !important;
+}
+
+#ivc_isi_bu {
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 72.92%;
+	left: 2.43%;
+	width: 97.74%;
+	height: 27.23%;
+	z-index: 192 !important;
+	opacity: 1 ;
+}
+
+#ivc_scroll_bu {
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 0.52%;
+	left: 98.09%;
+	width: 1.76%;
+	height: 98.98%;
+	z-index: 199 !important;
+	opacity: 1 ;
+}
+
+#ivc_thumb_bu {
+	background-image: url(thumb_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 16.5%;
+	z-index: 200 !important;
+	opacity: 1 ;
+}
+
+#ivc_rail_bu {
+	background-image: url(rail_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 0.52%;
+	left: 0%;
+	width: 100%;
+	height: 99.49%;
+	z-index: 199 !important;
+	opacity: 1 ;
+}
+
+#ivc_isi_content_bu {
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 0.52%;
+	left: 0.08%;
+	width: 96.73%;
+	height: 610.21%;
+	z-index: 198 !important;
+	opacity: 1 ;
+}
+
+#ivc_sitev2isi_bu {
+	cursor: pointer;
+}
+
+#ivc_sitev2isi_bu {
+	background-image: url(sitev2isi_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 83.53%;
+	left: 5.54%;
+	width: 31.49%;
+	height: 2.85%;
+	z-index: 200 !important;
+	opacity: 0 ;
+}
+
+#ivc_patientisi_bu {
+	cursor: pointer;
+}
+
+#ivc_patientisi_bu {
+	background-image: url(patientisi_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 78.52%;
+	left: 1.82%;
+	width: 29.92%;
+	height: 2.85%;
+	z-index: 199 !important;
+	opacity: 0 ;
+}
+
+#ivc_fdaisi_bu {
+	cursor: pointer;
+}
+
+#ivc_fdaisi_bu {
+	background-image: url(fdaisi_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 71.66%;
+	left: 75.87%;
+	width: 21.33%;
+	height: 2.85%;
+	z-index: 198 !important;
+	opacity: 0 ;
+}
+
+#ivc_isi1_1_bu {
+	background-image: url(isi1_1_bu_land.png);
+	background-size: 100% 100%;
+	background-repeat:no-repeat;
+	background-position: center;
+	position: absolute;
+	margin: 0px;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	z-index: 197 !important;
+	opacity: 1 ;
+}
+
+#ivc_canvas_bg {
+	background-image: url(canvas_bg_land.png);
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat:no-repeat;
+}
+
+
+
+/* MANUAL CODE - DO NOT DELETE THIS COMMENT *//* MANUAL CODE - DO NOT DELETE THIS COMMENT */
+
+/************************ DO NOT REMOVE THE CSS BELOW ************************/
+
+html, body {margin: 0; padding: 0; overflow: hidden}
+
+.ivc_overflowhidden{
+	overflow: hidden;
+}
+
+.ivc-ivc-no_bg {
+	background-image: none !important;
+}
+
+.ivc-ivc-origin_top_left{
+	transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+}
+
+
+
+/* hack for swiper js with fade transition */
+.swiper-container-fade .swiper-slide:not(.swiper-slide-active){
+	opacity: 0 !important;
+	transform: translate3d(0px, 0px, 0px) !important;
+}
+
+/* creative wrappers */
+#ivc-overlay, #ivc-slate, #ivc-overlay-creative, #ivc-slate-creative, #ivc-startcard-creative {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* will enable interaction on any child of the holders */
+.ivc-registered-holder * {
+	pointer-events: auto;
+}
+
+/* Canvas BG image */
+#ivc-overlay-fixed-preroll {
+	background-image: url("canvas_bg.png");
+}
+
+/* Play button position - Canvas only */
+.iv-video-controls {
+	background-position: 32.54% 33.43% !important;
+}
+
+/* disable text selection */
+:not(input) {
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	user-select: none;          /* Likely future */
+}
+
+/* Preloader Spinner */
+
+#ivc-preloader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-100%, -100%);
+	-moz-transform: translate(-100%, -100%);
+	-o-transform: translate(-100%, -100%);
+	-ms-transform: translate(-100%, -100%);
+	transform: translate(-100%, -100%);
+	width: 0.75em;
+	height: 0.75em;
+	cursor: auto;
+}
+#ivc-spinner {
+	background-color: transparent;
+	border: .2em solid #999999;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-radius: 1em;
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	margin-bottom: 0;
+	-webkit-animation: ivc-spinner 0.5s infinite linear;
+	-moz-animation: ivc-spinner 0.5s infinite linear;
+	-ms-animation: ivc-spinner 0.5s infinite linear;
+	-o-animation: ivc-spinner 0.5s infinite linear;
+	animation: ivc-spinner 0.5s infinite linear;
+	position: absolute;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+@-webkit-keyframes ivc-spinner {
+	/* Safari and Chrome */
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes ivc-spinner {
+	/* Firefox */
+	0% {
+		-moz-transform: rotate(0deg);
+	}
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes ivc-spinner {
+	/* IE */
+	0% {
+		-ms-transform: rotate(0deg);
+	}
+	100% {
+		-ms-transform: rotate(360deg);
+	}
+}
+@-o-keyframes ivc-spinner {
+	/* Opera */
+	0% {
+		-o-transform: rotate(0deg);
+	}
+	100% {
+		-o-transform: rotate(360deg);
+	}
+}
+@keyframes ivc-spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
