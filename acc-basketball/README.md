@@ -6,8 +6,9 @@ The goal is to explore how points are distributed among players and teams and to
 
 ## Contents
 
-- **Bench_Depth_Analysis.Rmd** – R Markdown file with initial data cleaning and scoring analysis.  
-- **Class_Analysis.Rmd** – Second R Markdown file with additional visualizations and deeper insights.   
+- **Bench_Depth_Analysis.Rmd** – Rmd with initial data cleaning and scoring analysis.  
+- **Class_Analysis.Rmd** – Rmd file with additional visualizations and deeper insights.
+- **pbp_analysis.Rmd** - Rmd file with play-by-play used for coaching timeout and foul strategy  
 
 
 ## Key Questions Explored
@@ -15,11 +16,13 @@ The goal is to explore how points are distributed among players and teams and to
 - How many points did each player score in conference play?  
 - What share of team scoring comes from top scorers?  
 - Which teams are more “top-heavy” in scoring vs. balanced?  
-- Are there any trends or patterns in scoring across the season?  
+- Are there any trends or patterns in scoring across the season?
+- What patterns emerge from tracking timeouts as a result of a run?
+- What are the different coaching strategies for pulling players due to foul trouble?
 
 ## Tools Used
 
-- **R**: tidyverse (dplyr, ggplot2, readr, stringr), rvest, janitor, R Markdown   
+- **R**: tidyverse (dplyr, ggplot2, readr, stringr), rvest, janitor, rleid, R Markdown   
 - Data manipulation, visualization, and reproducible reporting
 
 
