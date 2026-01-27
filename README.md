@@ -9,9 +9,10 @@ The goal of this portfolio is to demonstrate my skills in data cleaning, visuali
 ### 1. ACC Basketball Analysis
 A detailed analysis of ACC men’s basketball scoring during the 2025–2026 season.  
 **What’s included:**
-- Three R Markdown files analyzing:
+- R Markdown files analyzing:
   - player and team scoring data
   - play-by-play analysis
+  - UNC vs Duke analysis
 - Visualizations exploring scoring distribution and team dynamics
 - Folder: [acc-basketball](acc-basketball/)
 
@@ -27,6 +28,7 @@ A detailed analysis of ACC men’s basketball scoring during the 2025–2026 sea
 ## How to Use This Repo
 1. Browse the project folders
 2. Open `.Rmd` files to see code, analysis, and commentary
+3. Open `.n.html` files for web version
 
 ---
 
