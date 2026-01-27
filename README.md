@@ -14,7 +14,7 @@ A detailed analysis of ACC men’s basketball scoring during the 2025–2026 sea
   - play-by-play analysis
   - UNC vs Duke analysis
 - Visualizations exploring scoring distribution and team dynamics
-- Repo: https://github.com/hvb210/acc-basketball
+- Repo: [acc-basketball](https://github.com/hvb210/acc-basketball)
 
 
 ## Tools & Skills Demonstrated
