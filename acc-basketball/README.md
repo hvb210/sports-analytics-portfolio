@@ -8,7 +8,8 @@ The goal is to explore how points are distributed among players and teams and to
 
 - **Bench_Depth_Analysis.Rmd** – Rmd with initial data cleaning and scoring analysis.  
 - **Class_Analysis.Rmd** – Rmd file with additional visualizations and deeper insights.
-- **pbp_analysis.Rmd** - Rmd file with play-by-play used for coaching timeout and foul strategy  
+- **pbp_analysis.Rmd** - Rmd file with play-by-play used for coaching timeout and foul strategy
+- **UNC_Duke_Analysis.Rmd** - Rmd file with UNC vs Duke specific analysis (2005-2025)
 
 
 ## Key Questions Explored
@@ -19,6 +20,7 @@ The goal is to explore how points are distributed among players and teams and to
 - Are there any trends or patterns in scoring across the season?
 - What patterns emerge from tracking timeouts as a result of a run?
 - What are the different coaching strategies for pulling players due to foul trouble?
+- What trends exist in UNC vs Duke games?
 
 ## Tools Used
 
