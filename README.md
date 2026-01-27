@@ -28,7 +28,7 @@ A detailed analysis of ACC men’s basketball scoring during the 2025–2026 sea
 ## How to Use This Repo
 1. Browse the project folders
 2. Open `.Rmd` files to see code, analysis, and commentary
-3. Open `.n.html` files for web version
+3. Open `.nb.html` files for web version
 
 ---
 
